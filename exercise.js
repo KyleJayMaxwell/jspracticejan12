@@ -136,12 +136,21 @@ var randomArray = ['fuck', 'shit', 'up', 'bitch'];
 // var lowest = 0;
 // var highest = randomArray.length-1;
 
+//declare a function named grabRandom that accepts a single argument: array
 function grabRandom(array){
+  //declare variable 'highest' that is assigned the length of the array parameter
   var highest=array.length;
+  //declare a variable 'thing' that creates a random integer (using floor) that is
+  //between 0 and the length of the array represented by the 'highest' variable
   var thing = Math.floor((Math.random(0, highest)*highest));
+  //logs the index position that will be selected from the array
   console.log("Index Position: " + thing);
+  //logs a random index value from the array parameter at position 'thing' to the
+  //console
   console.log(array[thing]);
 }
+
+//invoke the grabRandom function using the randomArray variable declared above
 grabRandom(randomArray);
 
 var randomShit = "Fuck Shit Up";
@@ -171,14 +180,71 @@ var strungOut = "fuck i am done";
 var strung= [];
 
 function alphabet (string){
-    for(i=0;i<string.length;i++){
-      newstring = string.split("");
+    stuff = string.replace(/\s/g, "");
+    for(i=0;i<stuff.length;i++){
+      newstring = stuff.split("");
       strung.push(newstring[i]);
       newstring.sort();
     }
     console.log(newstring.join(""));
 }
 alphabet(strungOut);
+
+var testLongest = "This is a test strings to show length";
+var testLongArray = [];
+
+function getLongest(string){
+    var broken = string.split(" ");
+    max = 1;
+    for(i=0;i<broken.length;i++){
+      if(broken[i].length>max){
+        max=broken[i].length;
+        bigword = broken[i];
+      } 
+    }
+    console.log("The longest word is: "+ bigword + " which is this amount of characters: " + max);
+}
+getLongest(testLongest);
+
+var testYear = "1996";
+
+function addYear (year){
+  var separateYear = year.split("");
+  base = 0;
+  for(i=0;i<year.length;i++){
+    base+=parseInt(year[i]);
+  }
+  console.log(testYear +" equals: " + base);
+}
+addYear(testYear);
+
+var fullNames = ["Kyle Maxwell", "Mesut Ozil"];
+var first = [];
+
+function firstNames (array){
+  for(i=0;i<fullNames.length;i++){
+    newName = array[i].split(" ");
+    console.log(newName);
+    if(newName[0]){
+      first.push(newName[0]);
+    }
+  }
+  console.log("The First Names are: " + first);
+}
+firstNames(fullNames);
+
+var normal = "The Quick Brown Fox";
+
+function switched (string){
+  broke = normal.split(" ");
+  console.log(broke);
+  if (broke[0]) {
+    broke[0].toLowerCase();
+  };
+  console.log(broke);
+}
+
+switched(normal);
 
 
 
